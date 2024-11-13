@@ -12,7 +12,7 @@ import ListItemText from '@mui/material/ListItemText';
 import InboxIcon from '@mui/icons-material/MoveToInbox';
 import MailIcon from '@mui/icons-material/Mail';
 import ViewHeadlineIcon from '@mui/icons-material/ViewHeadline';
-import { Grid2, Grid } from '@mui/material';
+import { Grid } from '@mui/material';
 import WorkIcon from '@mui/icons-material/Work';
 import LocalPoliceIcon from '@mui/icons-material/LocalPolice';
 import { useRouter } from 'next/navigation'

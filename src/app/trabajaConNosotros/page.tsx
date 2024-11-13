@@ -2,7 +2,7 @@
 import { Box, TextField } from "@mui/material";
 import { useState } from "react";
 
-export default function trabajaConNosotros() {
+export default function TrabajaConNosotros() {
     const [formValue, setFormValue] = useState({
         nombre: '',
         apellido: '',
@@ -10,16 +10,16 @@ export default function trabajaConNosotros() {
         activo: false
 
     })
-    const handleSubmit = (formData: any) => {
+    const handleSubmit = (formData: React.FormEvent<HTMLFormElement>) => {
         console.log("formData ", formData)
     }
-    const handleChange =(e:any)=>{
-        const {value,name}=e.target;
+    const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+        const { value, name } = e.target;
         console.log(e.target)
-        console.log("value ",value," name ",name)
+        console.log("value ", value, " name ", name)
         setFormValue({
             ...formValue,
-            [name]:value
+            [name]: value
         })
     }
     return (
