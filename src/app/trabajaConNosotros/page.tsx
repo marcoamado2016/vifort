@@ -1,5 +1,5 @@
 'use client'
-import { Box, TextField } from "@mui/material";
+import { Box, Button, TextField, Typography } from "@mui/material";
 import { useState } from "react";
 
 export default function TrabajaConNosotros() {
@@ -36,13 +36,25 @@ export default function TrabajaConNosotros() {
                 boxShadow: 3,
             }}
         >
+            <Typography
+                variant="h5"
+                sx={{
+                    color: 'primary.main',
+                    textAlign: 'center'
+                }}
+            >
+                Datos del empleado
+            </Typography>
             <TextField
                 required
                 label={"Nombre"}
                 value={formValue.nombre}
+                name={"nombre"}
                 onChange={handleChange}
             />
-
+            <Button variant="contained" color="primary" type="submit">
+                Enviar
+            </Button>
 
         </Box>
     )
