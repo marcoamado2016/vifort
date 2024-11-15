@@ -1,27 +1,40 @@
 'use client'
-import { Box, Button, TextField, Typography } from "@mui/material";
+import { Box, Button, FormControlLabel, Grid, TextField, Typography, Checkbox } from "@mui/material";
 import { useState } from "react";
-
+import { createStyles, makeStyles } from '@mui/styles';
+import { Theme } from '@mui/material/styles';
+import { createTheme } from '@mui/material/styles';
+const theme = createTheme();
+const useStyles = makeStyles((theme: Theme) =>
+    createStyles({
+        root: {
+            '& .MuiTextField-root': {
+                margin: theme.spacing(1),
+                width: '25ch',
+            },
+        },
+    }),
+);
 export default function TrabajaConNosotros() {
     const [formValue, setFormValue] = useState({
         nombre: '',
         apellido: '',
         portacionArma: false,
-        activo: false
+        fuerzaArmada: false
 
     })
-    const handleSubmit = (formData: React.FormEvent<HTMLFormElement>) => {
-        console.log("formData ", formData)
+    const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+        e.preventDefault();
+        console.log("formData ", formValue)
     }
     const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-        const { value, name } = e.target;
-        console.log(e.target)
-        console.log("value ", value, " name ", name)
+        const { value, name, checked, type } = e.target;
         setFormValue({
             ...formValue,
-            [name]: value
+            [name]: type === 'checkbox' ? checked : value
         })
     }
+
     return (
         <Box
             component={'form'}
@@ -30,10 +43,11 @@ export default function TrabajaConNosotros() {
                 display: 'flex',
                 flexDirection: 'column',
                 gap: 2,
-                width: '300px',
+                width: '400px',
                 margin: 'auto',
                 padding: '16px',
                 boxShadow: 3,
+                marginTop: '100px'
             }}
         >
             <Typography
@@ -45,17 +59,59 @@ export default function TrabajaConNosotros() {
             >
                 Datos del empleado
             </Typography>
-            <TextField
-                required
-                label={"Nombre"}
-                value={formValue.nombre}
-                name={"nombre"}
-                onChange={handleChange}
-            />
+            <Grid container spacing={2}>
+                <Grid item xs={12} sm={6}>
+                    <TextField
+                        required
+                        label={"Nombre"}
+                        value={formValue.nombre}
+                        name={"nombre"}
+                        onChange={handleChange}
+                        fullWidth
+                    />
+                </Grid>
+                <Grid item xs={12} sm={6}>
+                    <TextField
+                        required
+                        label={"Apellido"}
+                        value={formValue.apellido}
+                        name={"apellido"}
+                        onChange={handleChange}
+                        fullWidth
+                    />
+                </Grid>
+                <Grid item xs={12} sm={6}>
+                    <FormControlLabel
+                        control={
+                            <Checkbox
+                                checked={formValue.portacionArma}
+                                onChange={handleChange}
+                                name="portacionArma"
+                                color="primary"
+                            />
+                        }
+                        label={"Portación de armas"}
+                    />
+
+                </Grid>
+                <Grid item xs={12} sm={6}>
+                    <FormControlLabel
+                        control={
+                            <Checkbox
+                                checked={formValue.fuerzaArmada}
+                                onChange={handleChange}
+                                name="fuerzaArmada"
+                                color="primary"
+                            />
+                        }
+                        label={"Fuerza armada"}
+                    />
+                </Grid>
+            </Grid>
+
             <Button variant="contained" color="primary" type="submit">
                 Enviar
             </Button>
-
         </Box>
     )
 }
