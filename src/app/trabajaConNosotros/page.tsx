@@ -1,17 +1,20 @@
 'use client'
 import { Box, Button, FormControlLabel, Grid, TextField, Typography, Checkbox } from "@mui/material";
 import { useState } from "react";
+import { useRouter } from 'next/navigation'
 export default function TrabajaConNosotros() {
     const [formValue, setFormValue] = useState({
         nombre: '',
         apellido: '',
         portacionArma: false,
-        fuerzaArmada: false
+        fuerzaArmada: false,
+        cvFile: null
 
     })
+    const route = useRouter()
     const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
-        console.log("formData ", formValue)
+
     }
     const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         const { value, name, checked, type } = e.target;
@@ -19,6 +22,11 @@ export default function TrabajaConNosotros() {
             ...formValue,
             [name]: type === 'checkbox' ? checked : value
         })
+    }
+
+    const comeBack = () => {
+        console.log("VOLVER")
+        route.push("/")
     }
 
     return (
@@ -29,7 +37,7 @@ export default function TrabajaConNosotros() {
                 display: 'flex',
                 flexDirection: 'column',
                 gap: 2,
-                width: '400px',
+                width: '1000px',
                 margin: 'auto',
                 padding: '16px',
                 boxShadow: 3,
@@ -66,7 +74,7 @@ export default function TrabajaConNosotros() {
                         fullWidth
                     />
                 </Grid>
-                <Grid item xs={12} sm={6}>
+                <Grid item xs={12} sm={4}>
                     <FormControlLabel
                         control={
                             <Checkbox
@@ -76,11 +84,11 @@ export default function TrabajaConNosotros() {
                                 color="primary"
                             />
                         }
-                        label={"Portación de armas"}
+                        label={"Portación armas"}
                     />
 
                 </Grid>
-                <Grid item xs={12} sm={6}>
+                <Grid item xs={12} sm={4}>
                     <FormControlLabel
                         control={
                             <Checkbox
@@ -93,11 +101,31 @@ export default function TrabajaConNosotros() {
                         label={"Fuerza armada"}
                     />
                 </Grid>
+                <Grid item xs={12} sm={4}>
+                    <Typography>
+                        Subir CV (PDF)
+                    </Typography>
+                    <input
+                        type="file"
+                        accept=".pdf"
+                        name="cvFile"
+                        onChange={handleChange}
+                    />
+                </Grid>
+            </Grid>
+            <Grid container spacing={2}>
+                <Grid item xs={12} sm={6} display="flex" justifyContent={"flex-end"}>
+                    <Button variant="contained" color="primary" type="submit" >
+                        Enviar
+                    </Button>
+                </Grid>
+                <Grid item xs={12} sm={6} display="flex" justifyContent={"flex-start"} onClick={comeBack}>
+                    <Button variant="contained" color="primary" >
+                        volver
+                    </Button>
+                </Grid>
             </Grid>
 
-            <Button variant="contained" color="primary" type="submit">
-                Enviar
-            </Button>
         </Box>
     )
 }

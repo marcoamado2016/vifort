@@ -87,7 +87,7 @@ export default function AnchorTemporaryDrawer() {
 
   return (
     <>
-      <Grid container >
+      <Grid container>
         <Grid container spacing={3}>
           <Grid item xs={12} sm={6}>
             {(['left'] as const).map((anchor) => (
@@ -105,18 +105,21 @@ export default function AnchorTemporaryDrawer() {
               </React.Fragment>
             ))}
           </Grid>
-          <Grid item xs={12} sm={3} justifyContent={"center"} alignItems={"center"} style={{ padding: '80px 0' }}>
-            <Box
-              component="img"
-              src="/images/vifort.jpg" // Ruta de la imagen en la carpeta public
-              // alt="Presentación"
-              sx={{
-                width: '80%', // Ajusta el ancho como desees
-                height: 'auto', // Mantiene la relación de aspecto
-                maxHeight: '300px', // Establece una altura máxima
-                objectFit: 'cover', // Cubre el área sin deformar la imagen
-              }}
-            />
+          <Grid container justifyContent="center" alignItems="center" spacing={2}>
+            <Grid item xs={12} sm={6} md={4} style={{ padding: '40px 0' }}>
+              <Box
+                component="img"
+                src="/images/vifort.jpg" // Ruta de la imagen en la carpeta public
+                sx={{
+                  width: '100%', // Ocupa el 100% del contenedor
+                  maxWidth: '300px', // Tamaño máximo para pantallas grandes
+                  height: 'auto', // Mantiene la relación de aspecto
+                  objectFit: 'cover',
+                  display: 'block', // Centra la imagen horizontalmente
+                  margin: 'auto', // Centra la imagen en su contenedor
+                }}
+              />
+            </Grid>
           </Grid>
         </Grid>
       </Grid>
