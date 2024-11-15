@@ -1,20 +1,6 @@
 'use client'
 import { Box, Button, FormControlLabel, Grid, TextField, Typography, Checkbox } from "@mui/material";
 import { useState } from "react";
-import { createStyles, makeStyles } from '@mui/styles';
-import { Theme } from '@mui/material/styles';
-import { createTheme } from '@mui/material/styles';
-const theme = createTheme();
-const useStyles = makeStyles((theme: Theme) =>
-    createStyles({
-        root: {
-            '& .MuiTextField-root': {
-                margin: theme.spacing(1),
-                width: '25ch',
-            },
-        },
-    }),
-);
 export default function TrabajaConNosotros() {
     const [formValue, setFormValue] = useState({
         nombre: '',
