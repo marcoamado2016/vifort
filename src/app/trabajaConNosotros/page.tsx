@@ -36,19 +36,22 @@ export default function TrabajaConNosotros() {
             sx={{
                 display: 'flex',
                 flexDirection: 'column',
-                gap: 2,
-                width: '1000px',
+                gap: 3,
+                width: { xs: '90%', sm: '80%', md: '60%', lg: '50%' },
                 margin: 'auto',
-                padding: '16px',
+                padding: 3,
                 boxShadow: 3,
-                marginTop: '100px'
+                borderRadius: 2,
+                mt: 5,
+                backgroundColor: 'background.paper',
             }}
         >
             <Typography
                 variant="h5"
                 sx={{
                     color: 'primary.main',
-                    textAlign: 'center'
+                    textAlign: 'center',
+                    mb: 2
                 }}
             >
                 Datos del empleado
@@ -102,7 +105,7 @@ export default function TrabajaConNosotros() {
                     />
                 </Grid>
                 <Grid item xs={12} sm={4}>
-                    <Typography>
+                    <Typography sx={{ mb: 1 }}>
                         Subir CV (PDF)
                     </Typography>
                     <input
@@ -110,6 +113,7 @@ export default function TrabajaConNosotros() {
                         accept=".pdf"
                         name="cvFile"
                         onChange={handleChange}
+                        style={{ width: '100%' }}
                     />
                 </Grid>
             </Grid>
