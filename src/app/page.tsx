@@ -15,7 +15,8 @@ import ViewHeadlineIcon from '@mui/icons-material/ViewHeadline';
 import { Grid } from '@mui/material';
 import WorkIcon from '@mui/icons-material/Work';
 import LocalPoliceIcon from '@mui/icons-material/LocalPolice';
-import { useRouter } from 'next/navigation'
+import { useRouter } from 'next/navigation';
+import Carousel from 'react-material-ui-carousel';
 type Anchor = 'top' | 'left' | 'bottom' | 'right';
 
 export default function AnchorTemporaryDrawer() {
@@ -42,13 +43,17 @@ export default function AnchorTemporaryDrawer() {
 
         setState({ ...state, [anchor]: open });
       };
-
+  const images = [
+    "/images/vifort.jpg",
+    "/images/vifort1.png"
+  ]
   const list = (anchor: Anchor) => (
     <Box
       sx={{ width: anchor === 'top' || anchor === 'bottom' ? 'auto' : 250 }}
       role="presentation"
       onClick={toggleDrawer(anchor, false)}
       onKeyDown={toggleDrawer(anchor, false)}
+
     >
       <List>
         <ListItem key={1} disablePadding>
@@ -64,7 +69,7 @@ export default function AnchorTemporaryDrawer() {
             <ListItemIcon>
               <LocalPoliceIcon />
             </ListItemIcon>
-            <ListItemText primary={'Contactanos'} />
+            <ListItemText primary={'Solicita nuestros servicios'} />
           </ListItemButton>
         </ListItem>
       </List>
@@ -107,18 +112,32 @@ export default function AnchorTemporaryDrawer() {
           </Grid>
           <Grid container justifyContent="center" alignItems="center" spacing={2}>
             <Grid item xs={12} sm={6} md={4} style={{ padding: '40px 0' }}>
-              <Box
-                component="img"
-                src="/images/vifort.jpg" // Ruta de la imagen en la carpeta public
-                sx={{
-                  width: '100%', // Ocupa el 100% del contenedor
-                  maxWidth: '300px', // Tamaño máximo para pantallas grandes
-                  height: 'auto', // Mantiene la relación de aspecto
-                  objectFit: 'cover',
-                  display: 'block', // Centra la imagen horizontalmente
-                  margin: 'auto', // Centra la imagen en su contenedor
-                }}
-              />
+              <Carousel
+                autoPlay={true}
+                interval={3000}
+                animation="slide"
+                indicators={true}
+                navButtonsAlwaysVisible={true}
+              >
+                {
+                  images.map((src, index) => (
+                    <Box
+                      key={index}
+                      component="img"
+                      src={src}
+                      alt={`Imagen ${index + 1}`}
+                      sx={{
+                        width: '100%',
+                        maxWidth: '300px',
+                        height: 'auto',
+                        objectFit: 'cover',
+                        display: 'block',
+                        margin: 'auto',
+                      }}
+                    />
+                  ))
+                }
+              </Carousel>
             </Grid>
           </Grid>
         </Grid>
