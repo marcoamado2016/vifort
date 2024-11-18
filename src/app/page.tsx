@@ -18,7 +18,7 @@ import LocalPoliceIcon from '@mui/icons-material/LocalPolice';
 import { useRouter } from 'next/navigation';
 import Carousel from 'react-material-ui-carousel';
 type Anchor = 'top' | 'left' | 'bottom' | 'right';
-
+import Footer from './footer/page';
 export default function AnchorTemporaryDrawer() {
   const [state, setState] = React.useState({
     top: false,
@@ -73,7 +73,6 @@ export default function AnchorTemporaryDrawer() {
           </ListItemButton>
         </ListItem>
       </List>
-
       <Divider />
       <List>
         {['All mail', 'Trash', 'Spam'].map((text, index) => (
@@ -89,7 +88,6 @@ export default function AnchorTemporaryDrawer() {
       </List>
     </Box>
   );
-
   return (
     <>
       <Grid container>
@@ -142,6 +140,7 @@ export default function AnchorTemporaryDrawer() {
           </Grid>
         </Grid>
       </Grid>
+      <Footer/>
     </>
   );
 }

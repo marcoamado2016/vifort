@@ -2,6 +2,7 @@
 import { Box, Button, FormControlLabel, Grid, TextField, Typography, Checkbox } from "@mui/material";
 import { useState } from "react";
 import { useRouter } from 'next/navigation'
+import Footer from "../footer/page";
 export default function TrabajaConNosotros() {
     const [formValue, setFormValue] = useState({
         nombre: '',
@@ -29,7 +30,7 @@ export default function TrabajaConNosotros() {
         route.push("/")
     }
 
-    return (
+    return (<>
         <Box
             component={'form'}
             onSubmit={handleSubmit}
@@ -89,7 +90,6 @@ export default function TrabajaConNosotros() {
                         }
                         label={"Portación armas"}
                     />
-
                 </Grid>
                 <Grid item xs={12} sm={4}>
                     <FormControlLabel
@@ -129,7 +129,8 @@ export default function TrabajaConNosotros() {
                     </Button>
                 </Grid>
             </Grid>
-
         </Box>
+        <Footer />
+    </>
     )
 }
