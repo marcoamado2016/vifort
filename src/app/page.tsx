@@ -139,19 +139,6 @@ export default function AnchorTemporaryDrawer() {
                     zIndex: 1, // Asegura que las flechas estén por encima del contenido
                   },
                 }}
-                sx={{
-                  '& .MuiButtonBase-root': {
-                    // Hacer que las flechas sean más pequeñas en pantallas móviles
-                    '@media (max-width: 600px)': {
-                      width: '30px',
-                      height: '30px',
-                    },
-                    '@media (max-width: 400px)': {
-                      width: '25px',
-                      height: '25px',
-                    },
-                  },
-                }}
               >
                 {images.map((src, index) => (
                   <Box
@@ -160,12 +147,13 @@ export default function AnchorTemporaryDrawer() {
                     src={src}
                     alt={`Imagen ${index + 1}`}
                     sx={{
-                      width: '100%',
-                      maxWidth: '100%',
-                      height: { xs: '200px', sm: '300px', md: '400px' }, // Ajuste responsivo de las imágenes
-                      objectFit: 'cover',
-                      borderRadius: '8px',
-                      boxShadow: '0px 4px 6px rgba(0,0,0,0.1)',
+                      width: '100%', // Ancho del 100% del contenedor
+                      height: { xs: '200px', sm: '300px', md: '400px' }, // Ajusta la altura según el tamaño de pantalla
+                      objectFit: 'cover', // Ajusta la imagen para que cubra todo el espacio sin distorsionarse
+                      display: 'block',
+                      margin: 'auto', // Centra la imagen horizontalmente
+                      borderRadius: '8px', // Bordes redondeados
+                      boxShadow: '0px 4px 6px rgba(0,0,0,0.1)', // Sombras opcionales
                     }}
                   />
                 ))}
