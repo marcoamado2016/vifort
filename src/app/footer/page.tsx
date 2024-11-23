@@ -22,10 +22,10 @@ export default function Footer() {
             }}
         >
             <Box display="flex" alignItems="center" gap={1} sx={{ mt: 1 }}> {/* Bajar los iconos */}
-                <Button href="https://instagram.com" target="_blank" rel="noopener">
+                <Button href="https://www.instagram.com/vifort_seguridad/" target="_blank" rel="noopener">
                     <InstagramIcon />
                 </Button>
-                <Button href="https://facebook.com" target="_blank" rel="noopener">
+                <Button href="https://www.facebook.com/vifortseguridad" target="_blank" rel="noopener">
                     <FacebookIcon />
                 </Button>
             </Box>
