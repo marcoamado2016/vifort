@@ -18,7 +18,7 @@ export default function Footer() {
                 mx: 'auto', // Centrar horizontalmente
                 display: 'flex',
                 justifyContent: 'space-between',
-                alignItems: 'center',
+                alignItems: 'center'
             }}
         >
             <Box display="flex" alignItems="center" gap={1} sx={{ mt: 1 }}> {/* Bajar los iconos */}

@@ -12,13 +12,14 @@ import ListItemText from '@mui/material/ListItemText';
 import InboxIcon from '@mui/icons-material/MoveToInbox';
 import MailIcon from '@mui/icons-material/Mail';
 import ViewHeadlineIcon from '@mui/icons-material/ViewHeadline';
-import { Grid } from '@mui/material';
+import { Grid, Typography } from '@mui/material';
 import WorkIcon from '@mui/icons-material/Work';
 import LocalPoliceIcon from '@mui/icons-material/LocalPolice';
 import { useRouter } from 'next/navigation';
 import Carousel from 'react-material-ui-carousel';
 type Anchor = 'top' | 'left' | 'bottom' | 'right';
 import Footer from './footer/page';
+import Header from './header/page';
 export default function AnchorTemporaryDrawer() {
   const [state, setState] = React.useState({
     top: false,
@@ -45,7 +46,10 @@ export default function AnchorTemporaryDrawer() {
       };
   const images = [
     "/images/vifort.jpg",
-    "/images/vifort1.png"
+    "/images/vifort1.png",
+    "/images/vifort2.png",
+    "/images/vifort3.png",
+    "/images/vifort4.png"
   ]
   const list = (anchor: Anchor) => (
     <Box
@@ -90,6 +94,7 @@ export default function AnchorTemporaryDrawer() {
   );
   return (
     <>
+      <Header />
       <Grid container>
         <Grid container spacing={3}>
           <Grid item xs={12} sm={6}>
@@ -136,11 +141,15 @@ export default function AnchorTemporaryDrawer() {
                   ))
                 }
               </Carousel>
+              <Typography
+                style={{ fontFamily: 'Arial, sans-serif', fontWeight: 'bold', marginTop: '16px' }}
+              >En VIFORT tu seguridad es nuestra prioridad las 24 horas, los 7 días de la semana.
+              </Typography>
             </Grid>
           </Grid>
         </Grid>
       </Grid>
-      <Footer/>
+      <Footer />
     </>
   );
 }
