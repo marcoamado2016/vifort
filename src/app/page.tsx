@@ -131,10 +131,10 @@ export default function AnchorTemporaryDrawer() {
                       alt={`Imagen ${index + 1}`}
                       sx={{
                         width: '100%',
-                        height: { xs: '250px', sm: '300px', md: '400px' }, 
-                        objectFit: 'cover', 
-                        display: 'block',
-                        borderRadius: '8px', 
+                        maxWidth: '100%',
+                        height: { xs: '200px', sm: '300px', md: '400px' }, // Ajuste responsivo
+                        objectFit: 'cover', // Mantiene proporciones al recortar
+                        borderRadius: '8px', // Bordes redondeados
                         boxShadow: '0px 4px 6px rgba(0,0,0,0.1)',
                       }}
                     />
