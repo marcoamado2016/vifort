@@ -121,43 +121,27 @@ export default function AnchorTemporaryDrawer() {
                 animation="slide"
                 indicators={true}
                 navButtonsAlwaysVisible={true}
-                navButtonsProps={{
-                  style: {
-                    backgroundColor: 'rgba(0, 0, 0, 0.5)', // Fondo semi-transparente
-                    color: '#fff', // Color de las flechas
-                    borderRadius: '50%', // Flechas circulares
-                    padding: '8px', // Ajusta el padding interno
-                    width: '35px', // Tamaño por defecto de las flechas
-                    height: '35px',
-                    zIndex: 1, // Asegura que las flechas estén por encima del contenido
-                  },
-                }}
-                navButtonsWrapperProps={{
-                  style: {
-                    top: '50%', // Centrar verticalmente
-                    transform: 'translateY(-50%)',
-                    zIndex: 1, // Asegura que las flechas estén por encima del contenido
-                  },
-                }}
               >
-                {images.map((src, index) => (
-                  <Box
-                    key={index}
-                    component="img"
-                    src={src}
-                    alt={`Imagen ${index + 1}`}
-                    sx={{
-                      width: '100%', // Ancho del 100% del contenedor
-                      height: { xs: '200px', sm: '300px', md: '400px' }, // Ajusta la altura según el tamaño de pantalla
-                      objectFit: 'cover', // Ajusta la imagen para que cubra todo el espacio sin distorsionarse
-                      display: 'block',
-                      margin: 'auto', // Centra la imagen horizontalmente
-                      borderRadius: '8px', // Bordes redondeados
-                      boxShadow: '0px 4px 6px rgba(0,0,0,0.1)', // Sombras opcionales
-                    }}
-                  />
-                ))}
+                {
+                  images.map((src, index) => (
+                    <Box
+                      key={index}
+                      component="img"
+                      src={src}
+                      alt={`Imagen ${index + 1}`}
+                      sx={{
+                        width: '100%',
+                        maxWidth: '300px',
+                        height: 'auto',
+                        objectFit: 'cover',
+                        display: 'block',
+                        margin: 'auto',
+                      }}
+                    />
+                  ))
+                }
               </Carousel>
+
               <Typography
                 style={{ fontFamily: 'Arial, sans-serif', fontWeight: 'bold', marginTop: '16px' }}
               >En VIFORT tu seguridad es nuestra prioridad las 24 horas, los 7 días de la semana.
